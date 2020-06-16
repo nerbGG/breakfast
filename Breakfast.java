@@ -27,7 +27,9 @@ public class Breakfast{
       int size = arr.size();
       for(int i = 0; i < 9;i++)
        {  
+         System.out.println("SATURDAY");
          String sat = arr.get(getFood(size));
+         System.out.println("SUNDAY");
          String sun = arr.get(getFood(size));
          sun = check(sat,sun,size);
          System.out.println("Saturday: "+sat+" Sunday: "+sun);
@@ -63,7 +65,7 @@ public class Breakfast{
       for(int i =0; i< nums.length;i++)
       {
          if(nums[i] != 99)
-         System.out.print(nums[i]);
+         System.out.print(nums[i]+" ");
       }
       
       counter++;   
@@ -77,12 +79,13 @@ public class Breakfast{
       {
          if(num == nums[i])
          {
-           System.out.println("num :"+num+" num[i]: "+nums[i]+" getting a new num");
+           System.out.println("num : "+num+" getting a new num");
            num = rand.nextInt(size);
            num = checkNum(nums,num,size,rand); 
+           System.out.println("num is now: "+num);
          }  
       }
-      System.out.println("num is now: "+num);
+      
       return num;
    }
 
