@@ -2,6 +2,7 @@ body{
     background-color: black;
     color: white;
      font-family: monospace; 
+     overflow: auto;
 }
 a{
     text-decoration: none;
@@ -53,19 +54,26 @@ a{
 text-decoration: underline;
 }
 .main{
-     text-align: center;
+    overflow: auto;
+     /* text-align: center; */
+     background-color: white;
+     color:black;
+     height: 550px;
+     margin-top: 0px;
+     padding:2px;
+
 } 
- #bfast-text{
-    margin-top: 8%;
-    margin-right: 60%;
-}
-#rest-text {
-    margin-right: 35%;
+#bfast-text{
+    margin-top: 10%;
+    margin-left: 10%;
+}   
+ #rest-text {
+    margin-left:10%;
 }
 #rest-text strong{
     background-color: white;
     color:blue;
-}
+} 
 #btn{
     padding:4px 0;
     background-color: #3498db;
@@ -73,8 +81,6 @@ text-decoration: underline;
     width:200px;
     height:50px;
     color:white;
-    margin-top: 5%;
-}
-btn:hover{
-    cursor: pointer;
+    margin-top: 2%;
+    margin-left: 41%;
 }
