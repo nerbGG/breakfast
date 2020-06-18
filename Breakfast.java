@@ -7,11 +7,12 @@ import java.util.ArrayList;
 
 public class Breakfast{
    static int counter =0;
-   static int [] nums = {99,99,99,99};
+   static int [] history = {99,99,99,99};
    // static String [] arr = {"waffles","pancakes","soup","noodle soup","spaghetti","bagels","laboulli","oatmeal"};
     static ArrayList<String> arr = new ArrayList<String>();
    public static void main (String [] args)
    {
+      //getting and reading the file
       try {
       File food = new File("food.txt");
       Scanner reader = new Scanner(food);
@@ -58,14 +59,14 @@ public class Breakfast{
       System.out.println("num: "+num);
       //System.out.println("possible value: "+arr[num]);
       
-      num = checkNum(nums,num,size,rand);  
-      nums[counter] = num;
+      num = checkNum(history,num,size,rand);  
+      history[counter] = num;
       
       System.out.print("history:");
-      for(int i =0; i< nums.length;i++)
+      for(int i =0; i< history.length;i++)
       {
-         if(nums[i] != 99)
-         System.out.print(nums[i]+" ");
+         if(history[i] != 99)
+         System.out.print(history[i]+" ");
       }
       
       counter++;   
@@ -73,15 +74,15 @@ public class Breakfast{
       return num;
    }   
 
-   public static int checkNum (int [] nums, int num,int size,Random rand)
+   public static int checkNum (int [] history, int num,int size,Random rand)
    {
-      for(int i =0; i < nums.length; i++)
+      for(int i =0; i < history.length; i++)
       {
-         if(num == nums[i])
+         if(num == history[i])
          {
            System.out.println("num : "+num+" getting a new num");
            num = rand.nextInt(size);
-           num = checkNum(nums,num,size,rand); 
+           num = checkNum(history,num,size,rand); 
            System.out.println("num is now: "+num);
          }  
       }
