@@ -4,4 +4,5 @@
 4.login form
 5.an actual logo
 6.test having some pictures for (maybe each food item is an object-pic-descript-recipe)
-7.see if the 
+7.make main height smaller
+8.center the output div
