@@ -1,0 +1,7 @@
+1.make links work
+2.test having the results in a pop up
+3. make it responsive
+4.login form
+5.an actual logo
+6.test having some pictures for (maybe each food item is an object-pic-descript-recipe)
+7.see if the 

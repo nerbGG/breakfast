@@ -1,9 +1,4 @@
-body{
-    background-color: black;
-    color: white;
-     font-family: monospace; 
-     overflow: auto;
-}
+
 a{
     text-decoration: none;
     color: white;
@@ -13,6 +8,7 @@ a{
     grid-template-columns: 1fr 2fr 1fr;
     border-bottom: 2px solid white;
     padding: 3px;
+    background-color: black; 
     /* border:2px solid blue; */
 }
 .links{
@@ -52,35 +48,4 @@ a{
 }
 #login-link:hover{
 text-decoration: underline;
-}
-.main{
-    overflow: auto;
-     /* text-align: center; */
-     background-color: white;
-     color:black;
-     height: 550px;
-     margin-top: 0px;
-     padding:2px;
-
-} 
-#bfast-text{
-    margin-top: 10%;
-    margin-left: 10%;
-}   
- #rest-text {
-    margin-left:10%;
-}
-#rest-text strong{
-    background-color: white;
-    color:blue;
-} 
-#btn{
-    padding:4px 0;
-    background-color: #3498db;
-    font-family: monospace;
-    width:200px;
-    height:50px;
-    color:white;
-    margin-top: 2%;
-    margin-left: 41%;
 }

@@ -1,7 +1,8 @@
 var counter  =0;//when the user clicks the button, couuter will be icremented
 var history = [];
 var arr = [];
-var output = document.getElementById("output");
+var output_sat = document.getElementById("sat");
+var output_sun = document.getElementById("sun");
 const btn = document.getElementById("btn");
 main();
 
@@ -17,10 +18,12 @@ main();
       //   { } 
          let sun=0, sat =0;
          btn.addEventListener("click", function(){
-            sat = arr[getFood(size)];
-            sun = arr[getFood(size)];
-            console.log("SATURDAY "+sat+" SUNDAY "+sun);
-            output.innerHTML = "Saturday: "+sat+"<br> Sunday: "+sun;
+            var sat = {name : arr[getFood(size)], img:"",recipe:""};
+            var sun = {name : arr[getFood(size)], img:"",recipe:""};
+
+            console.log("SATURDAY "+sat.name+" SUNDAY "+sun.name);
+            output_sat.innerHTML = sat.name;
+            output_sun.innerHTML = sun.name;
             // sun = check(sat,sun,size);
             console.log("\n");
          });
