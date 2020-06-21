@@ -3,6 +3,8 @@ var history = [];
 var arr = [];
 var output_sat = document.getElementById("sat");
 var output_sun = document.getElementById("sun");
+var output_sat_img = document.getElementById("sat-output-img");
+var output_sun_img = document.getElementById("sun-output-img");
 const btn = document.getElementById("btn");
 main();
 
@@ -18,31 +20,35 @@ main();
       //   { } 
          let sun=0, sat =0;
          btn.addEventListener("click", function(){
-            var sat = {name : arr[getFood(size)], img:"",recipe:""};
-            var sun = {name : arr[getFood(size)], img:"",recipe:""};
-
-            console.log("SATURDAY "+sat.name+" SUNDAY "+sun.name);
-            output_sat.innerHTML = sat.name;
-            output_sun.innerHTML = sun.name;
-            // sun = check(sat,sun,size);
+            // var sat = {name : arr[getFood(size)], img:sat.name+".jpg",recipe:""};
+            // var sun = {name : arr[getFood(size)], img:sun.name+".jpg",recipe:""};
+            var sat = arr[getFood(size)];
+            var sun = arr[getFood(size)];
+            sun = check(sat,sun,size);
+            output_sat_img.src = "img/"+sat+".jpg";
+            output_sun_img.src = "img/"+sun+".jpg";
+            console.log("saturday "+sat+" sunday "+sun);
+            output_sat.innerHTML = "Saturday: "+sat;
+            output_sun.innerHTML = "Sunday: "+sun;
+            
             console.log("\n");
          });
     }); 
  }
 
 
-// function check(sat, sun, size)
-//  {
-//     if(sun==sat)
-//     {
-//        console.log("sat is "+sat+" sun is: "+sun);
-//        console.log("getting new sun value\n");
-//        sun = arr[getFood(size)];
-//        console.log("sun is now: "+sun);
-//        check(sat,sun,size);
-//     }
-//     return sun; 
-//  }
+function check(sat, sun, size)
+ {
+    if(sun==sat)
+    {
+       console.log("sat is "+sat+" sun is: "+sun);
+       console.log("getting new sun value\n");
+       sun = arr[getFood(size)];
+       console.log("sun is now: "+sun);
+       check(sat,sun,size);
+    }
+    return sun; 
+ }
  
  function getFood(size)
  {

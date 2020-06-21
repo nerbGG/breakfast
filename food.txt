@@ -1,14 +1,12 @@
 waffles
 pancakes
 soup
-noodle soup
+noodle-soup
 spaghetti
 bagels
-laboulli
 oatmeal
 muffins
 apple-turnovers
 chocolate-bread
 eggs
 cornbread
-cornmeal
