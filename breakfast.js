@@ -9,7 +9,7 @@ var food  = [ //array of objects
    { "name":"","img":"","recipe":""},
    { "name":"","img":"","recipe":""}
 ];
-
+//html vars
 var text_output1 = document.getElementById("name1");
 var img_output1 = document.getElementById("img1");
 var text_output2 = document.getElementById("name2");
