@@ -7,11 +7,12 @@ a{
 .header{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-
-    padding: 3px;
+    height: 60px;
+    padding: 0px;
     /* background-color: black;  */
     background-color: white; 
     border-bottom:2px solid yellow;
+    /* overflow: hidden; */
 }
 .links{
     display: flex;
@@ -33,14 +34,13 @@ a{
     list-style-type: none;
 }
 .links > div>li>a{
-    text-transform: uppercase;
-    font-size: 17px; 
+    text-transform: uppercase; 
+    font-size: 12px; 
     font-weight: bold;
 }
-.header>h1,.header>h3{
-  text-align: center;
-}
-#login-link{
+
+#login-link, .header>h3{
+    text-align: center;
     margin-top: 7%;
 }
 .links>div:hover,.links>div:active{
