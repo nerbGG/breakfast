@@ -2,7 +2,8 @@
 2.test having the results in a pop up
 3. make it responsive
 4.login form
-5.an actual logo
-6.test having some pictures for (maybe each food item is an object-pic-descript-recipe)
-7.make main height smaller
-8.center the output div
+5.an actual logo [done-just 'NERB']
+6.fix bug when length is only equal to 2/maybe just use counter as the history length instead[done]
+7. fix history bug [done]
+8.fin unable to fetch food.txt [done]
+9.rewrite code to be objects[done]

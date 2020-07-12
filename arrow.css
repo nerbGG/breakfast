@@ -1,0 +1,19 @@
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    height: 3vw;
+    width: 3vw;
+    margin-left: 46%;
+    margin-top: 12%;
+    margin-bottom: 5%;
+  }
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .arrow:hover {
+    border-bottom-width: 6px;
+    border-right-width: 6px;
+  }
