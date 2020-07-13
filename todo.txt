@@ -1,9 +1,7 @@
 1.make links work
-2.test having the results in a pop up
-3. make it responsive
-4.login form
-5.an actual logo [done-just 'NERB']
-6.fix bug when length is only equal to 2/maybe just use counter as the history length instead[done]
-7.fix history bug [done]
-8.fix unable to fetch food.txt [done]
-9.rewrite code to be objects[done]
+2. make it responsive
+3.login form
+4.store variables in localstorage [as long as the output is 4 meals , dont need to storevalues locale because once counter is 4 it is reset]
+5.maybe change the max counter to 6 instead of 4 [will need local variables - couunter and history]
+6.add recipe button
+
