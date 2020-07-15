@@ -78,14 +78,15 @@ function getNum(size){//keeps track of the the last 4 values of num (the last 4 
 
 function checkHis(history, num,size)//checks to see if num is already in history
 {
-   for(let i =0; i <= counter; i++)
+   for(let i =0; i <= 4; i++)
    {
       if(num == history[i])
       {
         console.log("num : "+num+" getting a new num");
         num = Math.floor(Math.random()*size)
-        num = checkHis(history,num,size); 
         console.log("num is now: "+num);
+        num = checkHis(history,num,size); 
+
       }  
    }
    
