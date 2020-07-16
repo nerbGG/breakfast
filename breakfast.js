@@ -22,16 +22,15 @@ var img_output4 = document.getElementById("img4");
 
 //functions
 function main(){
-   document.getElementById("output-div").style.display = "inline-flex";
+   
     //storing the html input file
-    var file = document.getElementById('file'); //removed the 'change' event listener so the user wont have to select the file to execute the program(user will have to refresh page if new file is selected)
-    var reader =new FileReader(); 
-    reader.onload=function(){ //must deal with onload before reading the file
-        //cant accesss result outside of the onload function
-        foodArr = reader.result.split("\n");
-        let size = foodArr.length;
-        console.log(foodArr);
-        for(let i = 0; i < 4; i++)
+   var file = document.getElementById('file'); //removed the 'change' event listener so the user wont have to select the file to execute the program(user will have to refresh page if new file is selected)
+   var reader =new FileReader(); 
+   reader.onload=function(){ //must deal with onload before reading the file//cant accesss result outside of the onload function
+      foodArr = reader.result.split("\n");
+      let size = foodArr.length;
+      console.log(foodArr);
+      for(let i = 0; i < 4; i++)
         {
             food[i].name = foodArr[getNum(size)];
             food[i].img = "img/"+food[i].name+".jpg";
@@ -48,9 +47,17 @@ function main(){
         img_output3.src = food[2].img;
         text_output4.innerHTML = food[3].name;
         img_output4.src = food[3].img;
+        //displaying the output
+        document.getElementById("output-div").style.display = "inline-flex";
     } 
     //can read multiple files but only want the first one
-    reader.readAsText(file.files[0]);
+    //the there ae no files alret, else read
+    if(!file.files[0]){
+      alert("Must pick a file\n\n\n\n\n\n");
+    }
+    else{
+      reader.readAsText(file.files[0]);
+    }
 }   
 
 // function setFood(string){ //can be replaced by just doing 'food = reader.result.split("\n");'
