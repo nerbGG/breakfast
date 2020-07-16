@@ -56,3 +56,15 @@ a{
 #login-link:hover{
 text-decoration: underline;
 }
+@media only screen and (max-width:780px){   
+   
+    .header{
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .links{
+        display:none;
+    }
+    #login-link{
+        margin-right: 0px;
+    }
+}
