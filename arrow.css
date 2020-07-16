@@ -5,15 +5,28 @@
     padding: 3px;
     height: 3vw;
     width: 3vw;
-    margin-left: 46%;
-    margin-top: 12%;
-    margin-bottom: 5%;
+  
   }
   .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+    margin-left: 46%;
+    margin-top: 12%;
+    margin-bottom: 5%;
+  }
+  .right {
+    transform: rotate(-37deg);
+    -webkit-transform: rotate(-37deg);
+    display: none;
   }
   .arrow:hover {
     border-bottom-width: 6px;
     border-right-width: 6px;
+  }
+  @media only screen and (max-width:780px){   
+    .right{
+      display: inline;
+      margin-left:7%;
+      margin-top:13%;
+    }
   }
