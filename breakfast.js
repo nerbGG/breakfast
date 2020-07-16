@@ -22,7 +22,6 @@ var img_output4 = document.getElementById("img4");
 
 //functions
 function main(){
-   
     //storing the html input file
    var file = document.getElementById('file'); //removed the 'change' event listener so the user wont have to select the file to execute the program(user will have to refresh page if new file is selected)
    var reader =new FileReader(); 
