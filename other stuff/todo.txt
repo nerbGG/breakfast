@@ -6,4 +6,5 @@
 6.add recipe button
 7.try to have a default file
 8.fix problem with algorithm[problem with checkhis]
-
+9.change text output and image output to be arrays; ex.text_output[i].innerHtml = food[i].name;"
+10.be able to hide the output div (arrow up)

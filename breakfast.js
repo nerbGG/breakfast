@@ -2,7 +2,7 @@
 //public vars
 var foodArr = [];
 var history =[];
-var counter = 0;
+var counter = 0;                                
 var food  = [ //array of objects
    { "name":"","img":"","recipe":""},
    { "name":"","img":"","recipe":""},
@@ -10,6 +10,7 @@ var food  = [ //array of objects
    { "name":"","img":"","recipe":""}
 ];
 //html vars
+//9.change text output and image output to be arrays; ex.text_output[i] = food[i].name;"       
 var text_output1 = document.getElementById("name1");
 var img_output1 = document.getElementById("img1");
 var text_output2 = document.getElementById("name2");
@@ -21,6 +22,55 @@ var img_output4 = document.getElementById("img4");
 
 
 //functions
+
+function toggleDisplayLinks(){
+    var arrow = document.getElementById("nav-arrow");
+   arrow.classList.toggle("left");//only takes in 1 class anme
+   document.getElementById("bfast-link").classList.toggle("active");
+   document.getElementById("dinner-link").classList.toggle("active");
+   document.getElementById("bout-link").classList.toggle("active");
+   document.getElementById("learn-link").classList.toggle("active");
+   
+   document.getElementById("links").classList.toggle("wide");  
+   // document.getElementById("links").style.transform="translateX(-0%)";
+}
+/*ACTIVE LINK THING 
+html
+<a id="nav-arrow"class="arrow right" onclick="toggleDisplayLinks()"></a>
+<div id="bfast-link"class="link link-active"><li><a href="#links" onclick="toggleLinkActive('bfast-link')"</a></a>>Breakfast</a></li></div>
+<div id="dinner-link"class="link"><li><a href="" onclick="toggleLinkActive('dinner-link')">Dinner</a></li></div>
+<div id="learn-link"class="link"><li><a href="" onclick="toggleLinkActive('learn-link')">Learn More</a></li></div>
+<div id="bout-link"class="link"><li><a href="" onclick="toggleLinkActive('bout-link')">About Me</a></li></div>
+function toggleLinkActive(div_id){
+    document.getElementById(div_id).classList.toggle("link-active");
+   // document.getElementById(div_id).style.backgroundColor = "yellow";
+}*/
+/*function displayLinks(){
+   
+   console.log(window.innerWidth);
+   var arrow = document.getElementById("nav-arrow");
+   if (arrow.className === "arrow left")
+   {
+      hideLinks();
+   }
+   else{
+      arrow.className="arrow left";
+      document.getElementById("bfast-link").style.display = "block";
+      document.getElementById("dinner-link").style.display = "block";
+      document.getElementById("bout-link").style.display = "block";
+      document.getElementById("learn-link").style.display = "block";
+      document.getElementById("links").style.width = "100%";
+   }
+}
+ function hideLinks(){
+   document.getElementById("nav-arrow").className="arrow right";
+   document.getElementById("bfast-link").style.display = "none";
+   document.getElementById("dinner-link").style.display = "none";
+   document.getElementById("bout-link").style.display = "none";
+   document.getElementById("learn-link").style.display = "none";
+   // document.getElementsByClassName("link").style.display = "none";
+   document.getElementById("links").style.width = "unset";
+ }*/
 function main(){
     //storing the html input file
    var file = document.getElementById('file'); //removed the 'change' event listener so the user wont have to select the file to execute the program(user will have to refresh page if new file is selected)
@@ -38,6 +88,7 @@ function main(){
             console.log(food[i].name);
             console.log("\n");
         }
+      //9.change text output and image output to be arrays; ex.text_output[i] = food[i].name;"
         text_output1.innerHTML = food[0].name;
         img_output1.src = food[0].img;
         text_output2.innerHTML = food[1].name;
@@ -47,7 +98,7 @@ function main(){
         text_output4.innerHTML = food[3].name;
         img_output4.src = food[3].img;
         //displaying the output
-        document.getElementById("output-div").style.display = "inline-flex";
+      document.getElementById("output-div").style.display = "inline-flex";
     } 
     //can read multiple files but only want the first one
     //the there ae no files alret, else read

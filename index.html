@@ -12,13 +12,13 @@
     </head>
     <body>
         <div class="header"> 
-            <a class="arrow right" href="" onclick=""></a>  
             <h3>NERB</h3>
-            <div class="links">
-                <div id="bfast-link"class="d"><li><a href="index.html" ><strong>Breakfast</strong></a></li></div>
-                <div id="dinner-link"><li><a href="" >Dinner</a></li></div>
-                <div id="learn-link"><li><a href="" >Learn More</a></li></div>
-                <div id="bout-link"><li><a href="" >About Me</a></li></div>
+            <div id="links">
+                <a id="nav-arrow"class="arrow right" onclick="toggleDisplayLinks()"></a>
+                <div id="bfast-link"class="link link-active"><li><a href="#links">Breakfast</a></li></div>
+                <div id="dinner-link"class="link"><li><a href="" >Dinner</a></li></div>
+                <div id="learn-link"class="link"><li><a href="" >Learn More</a></li></div>
+                <div id="bout-link"class="link"><li><a href="" >About Me</a></li></div>
             </div>
             <h5 id="login-link"><a href="">LOGIN</a></h5>
         </div> 
@@ -26,7 +26,7 @@
         <div class="main"> 
             <div class="text">
                 <h1 id="bfast-text">Breakfast, </h1>
-                <h1 id="rest-text">with just one <strong>click! </strong></h1>    
+                <h1 id="rest-text">with just one <strong>click!</strong></h1>    
             </div>
             <a class="arrow down" href="#see-output" onclick="main()"></a> <!--calls main when clicked -->
             <div id="output-div">
