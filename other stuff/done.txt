@@ -1,0 +1,5 @@
+5.an actual logo [done-just 'NERB']
+6.fix bug when length is only equal to 2/maybe just use counter as the history length instead[done]
+7.fix history bug [done]
+8.fix unable to fetch food.txt [done]
+9.rewrite code to be objects[done]

@@ -1,46 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BREAKFASTTHING</title>
-    <link rel="stylesheet" href="header.css"type ="text/css" >
-    <link rel="stylesheet" href="main.css" type="text/css">
-</head>
-<body>
-    <!-- <input type="file" name="myfile"id="file" >
-    <br>
-    <pre id="output"></pre> for getFile function-->
-    <div class="header">   
-        <h1>LOGO</h1>
-        <div class="links">
-            <div id="bfast-link"class="d"><li><a href="index.html" ><strong>Breakfast</strong></a></li></div>
-            <div id="dinner-link"><li><a href="" >Dinner</a></li></div>
-            <div id="learn-link"><li><a href="" >Learn More</a></li></div>
-            <div id="bout-link"><li><a href="" >About Me</a></li></div>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BFAST Program</title>
+        <link rel="stylesheet" href="header.css"type ="text/css" >
+        <link rel="stylesheet" href="body.css"type ="text/css" >
+        <link rel="stylesheet" href="main.css"type ="text/css" >
+        <link rel="stylesheet" href="arrow.css"type ="text/css" >
+        <link rel="stylesheet" href="output.css"type ="text/css" >
+    </head>
+    <body>
+        <div class="header"> 
+            <h3>NERB</h3>
+            <div id="links">
+                <a id="nav-arrow"class="arrow right" onclick="toggleDisplayLinks()"></a>
+                <div id="bfast-link"class="link link-active"><li><a href="#links">Breakfast</a></li></div>
+                <div id="dinner-link"class="link"><li><a href="" >Dinner</a></li></div>
+                <div id="learn-link"class="link"><li><a href="" >Learn More</a></li></div>
+                <div id="bout-link"class="link"><li><a href="" >About Me</a></li></div>
+            </div>
+            <h5 id="login-link"><a href="">LOGIN</a></h5>
+        </div> 
+        
+        <div class="main"> 
+            <div class="text">
+                <h1 id="bfast-text">Breakfast, </h1>
+                <h1 id="rest-text">with just one <strong>click!</strong></h1>    
+            </div>
+            <a class="arrow down" href="#see-output" onclick="main()"></a> <!--calls main when clicked -->
+            <div id="output-div">
+                <div>
+                    <h4 id="name1"></h4>
+                    <img src="" id ="img1" alt="" width= "350px" height= "400px">
+                </div>
+                <div>
+                    <h4 id="name2"></h4>
+                    <img src="" id ="img2" alt="" width= "350px" height= "400px">
+                </div>
+                <div>
+                    <h4 id="name3"></h4>
+                    <img src="" id ="img3" alt="" width= "350px" height= "400px">
+                </div>
+                <div>
+                    <h4 id="name4"></h4>
+                    <img src="" id ="img4" alt="" width= "350px" height= "400px">
+                </div>
+            </div>
         </div>
-        <h3 id="login-link"><a href="">LOGIN</a></h3>
-    </div> 
-    <div class="main"> 
-        <span class="text">
-            <h1 id="bfast-text">Breakfast, </h1>
-            <h1 id="rest-text">with just one <strong>click! </strong></h1>
-            <button id="btn"> Generate Breakfast</button> 
-        </span>
-        <span  class="output">
-            <span class="sat">
-                <h3 id="sat">N/A</h3>
-                <img src="img/KYLO_REN.jpg" alt="l'image de food" width="300px"height="300px" id="sat-output-img">
-            </span>
-            <span >
-                <h3 id="sun">N/A</h3>
-                <img src="img/KYLO_REN.jpg" alt="l'image de ood" width="300px"height="300px"id="sun-output-img">
-            </span>
-        </span>
-    </div>
-    
-    <!-- <a href="" id="btn">CLICK HERE</a> click event listener does not work well with links-->
-    
-    <script src="breakfast.js"> </script>
-</body>
+        <p id="see-output"></p>
+        <input type="file" id="file">
+        <!-- <link rel="stylesheet" href="main.css" type="text/css"> -->
+        <script src="breakfast.js"> </script>
+    </body>
 </html>

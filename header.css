@@ -1,58 +1,114 @@
-
+.link-active{
+    background-color: yellow;
+    /* transition: ease-in;
+    transition-duration: 1s; */
+} 
+.header{
+    display: grid;
+    border-bottom:2px solid yellow;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 60px;
+    padding: 0px;
+    /* background-color: black;  */
+    /* background-color: white;  */
+    
+    /* overflow: hidden; */
+}
 a{
     text-decoration: none;
     /* color: white; */
     color: black;
 }
-.header{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-
-    padding: 3px;
-    /* background-color: black;  */
-    background-color: white; 
-    border-bottom:2px solid yellow;
-}
-.links{
+#links{
     display: flex;
+    align-items: center;
+    /* background-color: rgb(247, 240, 240); */
+    opacity: .8;
     flex-direction: row;
     border:2px solid yellow;
-    /* background-color: red;*/
-    align-items: center;
+    /* background-color: red;*/  
 }
-.links > div{   
-   width: 100%;
-   height: 100%;
-   text-align: center;
-   /* background-color: red; */
-    
+.link{   
+    width: 100%;
+    height: 30%; /*for some reason it allows the arrow to not be deformed when on left*/
+    text-align: center;
+    /* background-color: red; */
     /* border-right: 2px solid white; */
+    /* display: inline-block; */
+    cursor: pointer;
+    
 } 
-.links > div>li{
-    margin-top: 12%;
+.link li{
     list-style-type: none;
+    margin-top: 12%;
 }
-.links > div>li>a{
-    text-transform: uppercase;
-    font-size: 17px; 
+#links > div>li>a{
+    text-transform: uppercase; 
+    font-size: 12px; 
     font-weight: bold;
 }
-.header>h1,.header>h3{
-  text-align: center;
-}
-#login-link{
+#login-link, .header>h3{
+    text-align: center;
     margin-top: 7%;
-}
-.links>div:hover,.links>div:active{
-    background-color: yellow;
-    transition: ease-in;
-    transition-duration: 1s;
-}
-.d{
+}  
+#links>div:hover,#links>div:active{
     background-color: yellow;
     transition: ease-in;
     transition-duration: 1s;
 }
 #login-link:hover{
-text-decoration: underline;
+    text-decoration: underline;
 }
+
+/*for small screens*/
+
+ @media only screen and (max-width:780px){    
+    .link{
+        display:none;  
+    }
+    .header{
+        grid-template-columns: 1fr 1fr;
+    }
+    .header h3{
+        margin: auto;
+    }
+    #links{
+        background-color: opacity(1);
+        z-index: 2;
+        flex-direction: column; 
+        position: absolute;
+        width: 50%; 
+        height: 100%;
+        top: 0px;
+        left:-40%;
+        padding: 0%;
+        /* border:4px solid black; */
+        border:0;
+        text-align: end;
+        padding:5px;
+        /* width: 100%;   */
+        /* transform: translateX(-85%);  */
+        transition: transform .5s ease-in-out;
+    }
+    
+    .link li{
+        margin-top: 27%;
+    }
+    #login-link{
+        margin-left: 50%;
+    }
+    /*toggle classes - must be kept after the original classes otherwise, they will be overriden by the original classes */
+    .active{
+        display:block;
+    }
+    .wide{
+        /*  width:100%; */
+        /* transform: translateY(-105%);  */
+        transform: translateX(80%);     
+        background-color: black;
+        transition: transform .5s ease-in-out;
+        background-color: rgb(247, 240, 240);
+    } 
+
+ } 
+

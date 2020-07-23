@@ -1,0 +1,76 @@
+
+a{
+    text-decoration: none;
+    /* color: white; */
+    color: black;
+}
+.header{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 60px;
+    padding: 0px;
+    /* background-color: black;  */
+    background-color: white; 
+    border-bottom:2px solid yellow;
+    /* overflow: hidden; */
+}
+#links{
+    display: flex;
+    flex-direction: row;
+    border:2px solid yellow;
+    /* background-color: red;*/
+    align-items: center;
+}
+#links > div{   
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   /* background-color: red; */
+    
+    /* border-right: 2px solid white; */
+} 
+#links > div>li{
+    margin-top: 12%;
+    list-style-type: none;
+}
+#links > div>li>a{
+    text-transform: uppercase; 
+    font-size: 12px; 
+    font-weight: bold;
+}
+
+#login-link, .header>h3{
+    text-align: center;
+    margin-top: 7%;
+}
+#links>div:hover,#links>div:active{
+    background-color: yellow;
+    transition: ease-in;
+    transition-duration: 1s;
+}
+.d{
+    background-color: yellow;
+    transition: ease-in;
+    transition-duration: 1s;
+}
+#login-link:hover{
+text-decoration: underline;
+}
+@media only screen and (max-width:780px){   
+   
+    .header{
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    #links{
+        background-color:white;
+        display:none;
+        position: fixed;
+        top: 40px;
+        flex-direction: column;
+        z-index: 2;
+    }
+    #login-link{
+        margin-right: 0px;
+    }
+    
+}
