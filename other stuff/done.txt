@@ -3,3 +3,6 @@
 7.fix history bug [done]
 8.fix unable to fetch food.txt [done]
 9.rewrite code to be objects[done]
+7.try to have a default file[impossible]
+8.fix problem with algorithm[problem with checkhis]
+2. make it responsive[done]
