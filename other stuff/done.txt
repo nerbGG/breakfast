@@ -6,3 +6,4 @@
 7.try to have a default file[impossible]
 8.fix problem with algorithm[problem with checkhis]
 2. make it responsive[done]
+9.change text output and image output to be arrays; ex.text_output[i].innerHtml = food[i].name;" - done
