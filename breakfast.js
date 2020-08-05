@@ -5,12 +5,63 @@ var history =[];
 var counter = 0;                                
 var food  = //array of objects
 [ 
-   { "name":"","img":"","recipe":""},
-   { "name":"","img":"","recipe":""},
-   { "name":"","img":"","recipe":""},
-   { "name":"","img":"","recipe":""}
+   { "name":"","img":"","recipe":""},//0
+   { "name":"","img":"","recipe":""},//1
+   { "name":"","img":"","recipe":""},//2
+   { "name":"","img":"","recipe":""} //3
 ];
 //frontend-fucntions
+// btnName();
+// function btnName(){
+//  var text = document.getElementsByClassName('recipe-btn');
+//  for(let i =0;i<5;i++)
+//    text[i].innerHTML = "Recipe";
+// }
+function recipeCheckbox0(){
+   // var checkBox = document.getElementsByClassName('recipe-checkbox');
+   var cover= document.getElementsByClassName('cover');
+   cover[1].classList.toggle("no-opacity");
+   cover[0].classList.toggle("high-opacity");
+   
+   var checkMark = document.getElementsByClassName('nosee-check');
+   checkMark[0].classList.toggle('see-check');
+     
+      /*if(checkBox[0].checked){ DOESNT WORK BC/ THAT THEN HOVER EFFECT DOESNT WORK SINCE THE OPACITY IS SET BY JS
+         cover[1].style.opacity = "0";
+         cover[0].style.opacity = ".7";
+      }
+      else{
+         cover[1].style.opacity = ".7";
+         cover[0].style.opacity = "0";
+      }*/
+}
+function recipeCheckbox1(){
+   // var checkBox = document.getElementsByClassName('recipe-checkbox');
+   var cover= document.getElementsByClassName('cover');
+   cover[2].classList.toggle("no-opacity");
+   cover[1].classList.toggle("high-opacity");
+
+   var checkMark = document.getElementsByClassName('nosee-check');
+   checkMark[1].classList.toggle('see-check');
+}
+function recipeCheckbox2(){
+   // var checkBox = document.getElementsByClassName('recipe-checkbox');
+   var cover= document.getElementsByClassName('cover');
+   cover[3].classList.toggle("no-opacity");
+   cover[2].classList.toggle("high-opacity");
+   
+   var checkMark = document.getElementsByClassName('nosee-check');
+   checkMark[2].classList.toggle('see-check');
+}
+function recipeCheckbox3(){
+   // var checkBox = document.getElementsByClassName('recipe-checkbox');
+   var cover= document.getElementsByClassName('cover');
+      // cover[2].classList.toggle("no-opacity");
+   cover[3].classList.toggle("high-opacity");
+   var checkMark = document.getElementsByClassName('nosee-check');
+   checkMark[3].classList.toggle('see-check');
+}
+
 function toggleDisplayLinks(){
    var arrow = document.getElementById("nav-arrow");
   arrow.classList.toggle("left");//only takes in 1 class anme
@@ -22,6 +73,7 @@ function toggleDisplayLinks(){
   document.getElementById("links").classList.toggle("wide");  
   // document.getElementById("links").style.transform="translateX(-0%)";
 }
+
 function setOutput(){
    var text_output= [4];
       var img_output =[4];
@@ -76,7 +128,7 @@ function setFoodObjs(size){
 
 
 function getNum(size){//keeps track of the the last 4 values of num (the last 4 meals). Updates the counter
-   if(counter == 6) // the history keeps only the last 4 values and resets when counter is 4
+   if(counter == 6) // the history keeps only the last 6values and resets when counter is 4
       counter = 0;
    var num = Math.floor(Math.random()*size);//letting the value of numbe random ( the range is set by multiplying it by size)
    console.log("num: "+num);
@@ -94,7 +146,7 @@ function getNum(size){//keeps track of the the last 4 values of num (the last 4 
 
 function checkHis(history, num,size)//checks to see if num is already in history
 {
-   for(let i =0; i <= 4; i++)
+   for(let i =0; i <= 6; i++)
    {
       if(num == history[i])
       {

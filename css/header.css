@@ -22,6 +22,9 @@ a{
 .header h3{
     text-decoration: line-through;
     letter-spacing:6px;
+    /* background-color: black;
+    color: yellow;
+    width:15%; */
     
 }
 #links{
@@ -59,9 +62,9 @@ a{
     /* margin-top: 7%; */
 }  
 #links>div:hover,#links>div:active{
-    //background-color: yellow;
-   // transition: ease-in;
-   // transition-duration: 1s; 
+    /* background-color: yellow;
+    transition: ease-in;
+    transition-duration: 1s;  */
     text-decoration: underline;
     text-shadow: 4px 4px 4px #aaa;
 }

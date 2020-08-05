@@ -9,17 +9,18 @@
     /* border-top: 4px solid black; */
 }
 
-#output-div div{
+.output{
     /* border: 2px solid yellow; */
     width:100%;
     /* height:100%; */
     text-align: center;
-    overflow: hidden;
+    overflow: inherit;
     flex-wrap: wrap;
     /* background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%); */
     height: 400px;
+    cursor: pointer;
 }
-#output-div div h4{
+ .output h4{
     /* background-color: #f9ea8f; */
     /* background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%); */
     /* border-top: 2px solid black; */
@@ -31,17 +32,52 @@
     margin-bottom: 0%;
     
 }
-#output-div div img{
+#output-div .output img{
     border-top:0%;
-    overflow: hidden;
     border: 2px solid yellow;
 }
-@media only screen and (max-width:780px)
-{
+.cover{
+    width: 350px;
+    height:400px;
+    position: relative;
+    top: -437px;
+    z-index: 999;
+    background-color: gray;
+    opacity: .7;
+    /* visibility: hidden; */
+    padding: 0;
+    margin:0;
+    transition: opacity .25s ease-in;
+}
+.cover:hover, #cover1:hover{
+    opacity: 0.3 ;
+}
+ .cover span{
+    /* display: block; */
+    position: relative;
+    top:30%;
+    font-size:100px
+}  
+.no-opacity{
+    opacity:0;
+}
+.high-opacity{
+    opacity:.7;
+}
+.nosee-check{
+    /* visibility:hidden; */
+    opacity: 0;
+}
+.see-check{
+    /* visibility: visible; */
+    opacity: 1;
+}
+
+@media only screen and (max-width:780px){
     #output-div {
         flex-direction: column;
     }
-    #output-div div{
+    .output{
         /* background-color: black; */
         /* width: 350px; */
         display: flex;
@@ -49,7 +85,7 @@
         justify-content: center; 
         flex-wrap: wrap;
     }
-    #output-div div h4{
+    #output-div .output h4{
         width: 350px;
     }
 }
