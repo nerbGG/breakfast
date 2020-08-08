@@ -32,7 +32,6 @@ a{
     align-items: center;/*vertical*/
     /* justify-content: center; *//*horizontal*/
     /* background-color: rgb(247, 240, 240); */
-    opacity: .8;
     flex-direction: row;
     border:2px solid yellow;
     /* background-color: red;*/  
@@ -56,6 +55,8 @@ a{
     text-transform: uppercase; 
     /* font-size: 12px;  */
     font-weight: bold;
+    color:black;
+    /* opacity: 1; */
 }
 #login-link, .header>h3{
     text-align: center;
@@ -78,6 +79,7 @@ a{
     .link{
         display:none;  
         height: 30%;
+        opacity: 1;
     }
     .header{
         grid-template-columns: 1fr 1fr;
@@ -86,8 +88,8 @@ a{
         margin-right:-100%;
     }
     #links{
-        background-color: opacity(1);
-
+        /* background-color: opacity(1); */
+        opacity: .8;
         z-index: 2;
         flex-direction: column;
 
@@ -116,7 +118,7 @@ a{
     .active{
         display:block;
     }
-    .wide{
+    .moveX{
         /*  width:100%; */
         /* transform: translateY(-105%);  */
         transform: translateX(80%);     

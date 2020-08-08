@@ -30,8 +30,9 @@
                 <h1 id="bfast-text">Breakfast, </h1>
                 <h1 id="rest-text">with just one <strong>click!</strong></h1>    
             </div>
-            <a class="arrow down" href="#see-output" onclick="main()"></a> <!--calls main when clicked -->
-            <div id="output-div">
+            <!-- <a class="arrow down" href="#see-output" onclick="main()"></a> calls main when clicked -->
+            <a class="arrow down" href="#see-output" onclick="displayOutput()"></a>
+            <div id="output-div" class="output-hide">
                 <div class="output">
                     <h4 id="name0"></h4>
                     <img src="" id ="img0" alt="" width= "350px" height= "400px">
@@ -70,6 +71,7 @@
                 </div>
             </div>
         </div>
+        <button id="bfast-btn" onclick='main()'>Generate new B-fast</button>
         <p id="see-output"></p>
         <input type="file" id="file">
         <!-- <link rel="stylesheet" href="main.css" type="text/css"> -->
