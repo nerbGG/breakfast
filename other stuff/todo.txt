@@ -1,8 +1,3 @@
 1.make links work
-
 3.login form
-4.store variables in localstorage [as long as the output is 4 meals , dont need to storevalues locale because once counter is 4 it is reset]
-5.maybe change the max counter to 6 instead of 4 [will need local variables - couunter and history]
-6.add recipe button
-9.change text output and image output to be arrays; ex.text_output[i].innerHtml = food[i].name;"
-10.be able to hide the output div (arrow up)
+4.store variables in localstorage [level:8]

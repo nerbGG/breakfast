@@ -1,151 +1,260 @@
-
 //public vars
-var foodArr = [];
-var history =[];
-var counter = 0;                                
-var food  = [ //array of objects
-   { "name":"","img":"","recipe":""},
-   { "name":"","img":"","recipe":""},
-   { "name":"","img":"","recipe":""},
-   { "name":"","img":"","recipe":""}
-];
-//html vars
-//9.change text output and image output to be arrays; ex.text_output[i] = food[i].name;"       
-var text_output1 = document.getElementById("name1");
-var img_output1 = document.getElementById("img1");
-var text_output2 = document.getElementById("name2");
-var img_output2= document.getElementById("img2");
-var text_output3 = document.getElementById("name3");
-var img_output3 = document.getElementById("img3");
-var text_output4 = document.getElementById("name4");
-var img_output4 = document.getElementById("img4");
-
-
-//functions
-
-function toggleDisplayLinks(){
-    var arrow = document.getElementById("nav-arrow");
-   arrow.classList.toggle("left");//only takes in 1 class anme
-   document.getElementById("bfast-link").classList.toggle("active");
-   document.getElementById("dinner-link").classList.toggle("active");
-   document.getElementById("bout-link").classList.toggle("active");
-   document.getElementById("learn-link").classList.toggle("active");
-   
-   document.getElementById("links").classList.toggle("wide");  
-   // document.getElementById("links").style.transform="translateX(-0%)";
+// var foodArr = localStorage.getItem('listOfFood')===null? getFile() : JSON.parse(localStorage.getItem('listOfFood'));
+var foodArr =[];
+// getFile();
+if(localStorage.getItem('listOfFood')=== null){
+   alert("select a file\n\n");
+   document.getElementById('file').addEventListener("change", function(){
+   var file = document.getElementById('file');
+   var reader =new FileReader(); 
+    reader.onload=function() { //must deal with onload before reading the file//cant accesss result outside of the onload function
+      // var storedFoodArr = [];
+      foodArr = reader.result.split("\n");
+      localStorage.setItem("listOfFood", JSON.stringify(foodArr));
+      // foodArr = JSON.parse(localStorage.getItem('listOfFood'));
+      console.log(foodArr);
+      // main();//should be called by a button -done
+      // return foodArr;
+   } 
+   //can read multiple files but only want the first one
+   //the there are no files alert, else read
+   if(!file.files[0])
+      alert("Must pick a file\n\n\n\n\n\n");
+   else
+      reader.readAsText(file.files[0]);
+   // reader.readAsText(file.files[0]);
+   })
+   }
+else{
+   foodArr = JSON.parse(localStorage.getItem('listOfFood'));
 }
-/*ACTIVE LINK THING 
-html
-<a id="nav-arrow"class="arrow right" onclick="toggleDisplayLinks()"></a>
-<div id="bfast-link"class="link link-active"><li><a href="#links" onclick="toggleLinkActive('bfast-link')"</a></a>>Breakfast</a></li></div>
-<div id="dinner-link"class="link"><li><a href="" onclick="toggleLinkActive('dinner-link')">Dinner</a></li></div>
-<div id="learn-link"class="link"><li><a href="" onclick="toggleLinkActive('learn-link')">Learn More</a></li></div>
-<div id="bout-link"class="link"><li><a href="" onclick="toggleLinkActive('bout-link')">About Me</a></li></div>
-function toggleLinkActive(div_id){
-    document.getElementById(div_id).classList.toggle("link-active");
-   // document.getElementById(div_id).style.backgroundColor = "yellow";
-}*/
-/*function displayLinks(){
+var max = 4;
+var foodHis = new Array(max);
+if(localStorage.getItem('localHistory') === null){
+   // history = [];
+   setLocalHistory(foodHis);
+}
+else{
+   foodHis = JSON.parse(localStorage.getItem("localHistory"));
+   console.log(foodHis);
+}
+var counter;
+if(localStorage.getItem('localCounter') === null){
+   counter =0;
+   setLocalCounter(counter);
+}
+else{
+   counter = JSON.parse(localStorage.getItem("localCounter"));
+}
+var food  = //array of objects
+[ 
+   { "name":"","img":"","recipe":""},//0
+   { "name":"","img":"","recipe":""},//1
+   { "name":"","img":"","recipe":""},//2
+   { "name":"","img":"","recipe":""} //3
+];
+var text_output= [4];
+var img_output =[4];
+
+var localFoodName = localStorage.getItem('localFoodName')? JSON.parse(localStorage.getItem('localFoodName')): [];
+var localFoodImg = localStorage.getItem('localFoodImg')? JSON.parse(localStorage.getItem('localFoodImg')): [];
+// localStorage.getItem('localCounter') === null? localStorage.setItem('localCounter',JSON.stringify(0)) : JSON.parse(localStorage.getItem("localCounter"));                              
+//console.log(foodArr);
+//script
+// //getFile();
+/*function getFile(){
+   // var file =document.getElementById('file');
+   var reader =new FileReader(); 
    
-   console.log(window.innerWidth);
-   var arrow = document.getElementById("nav-arrow");
-   if (arrow.className === "arrow left")
-   {
-      hideLinks();
+   reader.onload=function() { //must deal with onload before reading the file//cant accesss result outside of the onload function
+      // var storedFoodArr = [];
+      foodArr = reader.result.split("\n");
+      // localStorage.setItem("listoffood", JSON.stringify(foodArr));
+      // foodArr = JSON.parse(localStorage.getItem('listoffood'));
+      console.log(foodArr);
+      // main();//should be called by a button -done
+      // return foodArr;
+   } 
+   //can read multiple files but only want the first one
+   //the there are no files alert, else read
+   if(!file.files[0]){
+      alert("Must pick a file\n\n\n\n\n\n");
+      
    }
    else{
-      arrow.className="arrow left";
-      document.getElementById("bfast-link").style.display = "block";
-      document.getElementById("dinner-link").style.display = "block";
-      document.getElementById("bout-link").style.display = "block";
-      document.getElementById("learn-link").style.display = "block";
-      document.getElementById("links").style.width = "100%";
+      reader.readAsText(file.files[0]);
+   }
+   //removed the 'change' event listener so the user wont have to select the file to execute the program(user will have to refresh page if new file is selected)
+  
+}*/
+function recipeCheckbox0(){//when clicked, the div will become dark and the next div will brighten up
+   // var checkBox = document.getElementsByClassName('recipe-checkbox');
+   var cover= document.getElementsByClassName('cover');
+   cover[1].classList.toggle("no-opacity");
+   cover[0].classList.toggle("high-opacity");
+   
+   var checkMark = document.getElementsByClassName('nosee-check');
+   checkMark[0].classList.toggle('see-check');
+     
+      /*if(checkBox[0].checked){ DOESNT WORK BC/ THAT THEN HOVER EFFECT DOESNT WORK SINCE THE OPACITY IS SET BY JS
+         cover[1].style.opacity = "0";
+         cover[0].style.opacity = ".7";
+      }
+      else{
+         cover[1].style.opacity = ".7";
+         cover[0].style.opacity = "0";
+      }*/
+}
+function recipeCheckbox1(){
+   // var checkBox = document.getElementsByClassName('recipe-checkbox');
+   var cover= document.getElementsByClassName('cover');
+   cover[2].classList.toggle("no-opacity");
+   cover[1].classList.toggle("high-opacity");
+
+   var checkMark = document.getElementsByClassName('nosee-check');
+   checkMark[1].classList.toggle('see-check');
+}
+function recipeCheckbox2(){
+   // var checkBox = document.getElementsByClassName('recipe-checkbox');
+   var cover= document.getElementsByClassName('cover');
+   cover[3].classList.toggle("no-opacity");
+   cover[2].classList.toggle("high-opacity");
+   
+   var checkMark = document.getElementsByClassName('nosee-check');
+   checkMark[2].classList.toggle('see-check');
+}
+function recipeCheckbox3(){
+   // var checkBox = document.getElementsByClassName('recipe-checkbox');
+   var cover= document.getElementsByClassName('cover');
+      // cover[2].classList.toggle("no-opacity");
+   cover[3].classList.toggle("high-opacity");
+   var checkMark = document.getElementsByClassName('nosee-check');
+   checkMark[3].classList.toggle('see-check');
+}
+function setOutput(){
+   for(let i =0; i <4;i++){
+      let n = i.toString();
+      let text_id  = "name"+n;
+      let img_id = "img"+n;
+      text_output[i] = document.getElementById(text_id);
+      img_output[i]=document.getElementById(img_id);
+   }
+   for(let i =0; i < 4; i++){
+      // text_output[i].innerHTML = food[i].name;
+      // img_output[i].src = food[i].img;
+      text_output[i].innerHTML = localFoodName[i];
+      img_output[i].src = localFoodImg[i];
    }
 }
- function hideLinks(){
-   document.getElementById("nav-arrow").className="arrow right";
-   document.getElementById("bfast-link").style.display = "none";
-   document.getElementById("dinner-link").style.display = "none";
-   document.getElementById("bout-link").style.display = "none";
-   document.getElementById("learn-link").style.display = "none";
-   // document.getElementsByClassName("link").style.display = "none";
-   document.getElementById("links").style.width = "unset";
- }*/
-function main(){
-    //storing the html input file
-   var file = document.getElementById('file'); //removed the 'change' event listener so the user wont have to select the file to execute the program(user will have to refresh page if new file is selected)
-   var reader =new FileReader(); 
-   reader.onload=function(){ //must deal with onload before reading the file//cant accesss result outside of the onload function
-      foodArr = reader.result.split("\n");
-      let size = foodArr.length;
-      console.log(foodArr);
-      for(let i = 0; i < 4; i++)
-        {
-            food[i].name = foodArr[getNum(size)];
-            food[i].img = "img/"+food[i].name+".jpg";
-            food[i].recipe = "recipes/"+food.name+".txt";
-
-            console.log(food[i].name);
-            console.log("\n");
-        }
-      //9.change text output and image output to be arrays; ex.text_output[i] = food[i].name;"
-        text_output1.innerHTML = food[0].name;
-        img_output1.src = food[0].img;
-        text_output2.innerHTML = food[1].name;
-        img_output2.src = food[1].img;
-        text_output3.innerHTML = food[2].name;
-        img_output3.src = food[2].img;
-        text_output4.innerHTML = food[3].name;
-        img_output4.src = food[3].img;
-        //displaying the output
-      document.getElementById("output-div").style.display = "inline-flex";
-    } 
-    //can read multiple files but only want the first one
-    //the there ae no files alret, else read
-    if(!file.files[0]){
+function changeArrow(){
+   var arrow = document.getElementsByClassName("arrow");
+   arrow[1].classList.toggle('up');
+}
+function displayOutput(){//will display the old 4 sets of food
+   // document.getElementById("output-div").style.display = "inline-flex";
+   var file = document.getElementById('file');
+   
+   if(!file.files[0]){
       alert("Must pick a file\n\n\n\n\n\n");
-    }
-    else{
-      reader.readAsText(file.files[0]);
-    }
-}   
+      return 0;
+   }
+   else if(localFoodName.length <= 0){
+      alert("generate B-fast first");
+      return 0;
+   }
+   // if(text_output[0].innerHTML) add a rul ehere bc its inefficient to call setoutput when main already calls it
+      setOutput();
+      // main();
+      // setOutput();
+      // displayOutput();
+   document.getElementById("output-div").classList.toggle("output-display");
+   changeArrow();
+   
+}
 
-// function setFood(string){ //can be replaced by just doing 'food = reader.result.split("\n");'
-//     food = string.split('\n');//dividing the file into smaller string by '\n'
-//     return food;
-// }
+function toggleDisplayLinks(){//for mobile view, instead of being hidden, they become visible 
+   var arrow = document.getElementById("nav-arrow");
+  arrow.classList.toggle("left");//only takes in 1 class anme
+  document.getElementById("bfast-link").classList.toggle("active");
+  document.getElementById("dinner-link").classList.toggle("active");
+  document.getElementById("bout-link").classList.toggle("active");
+  document.getElementById("learn-link").classList.toggle("active");
+  
+  document.getElementById("links").classList.toggle("moveX");  
+  // document.getElementById("links").style.transform="translateX(-0%)";
+} 
+//backend-functions
+function main(){
+   // console.log(foodArr);
+   let size = foodArr.length;
+   //storing the html input file
+    setFoodObjs(size);
+    setOutput(); 
+    // displaying the output*/ 
+   //  displayOutput();
+   //  document.getElementById("output-div").style.display = "inline-flex";
+} 
+function setFoodObjs(size){
+   for(let i = 0; i < 4; i++)
+   {
+      food[i].name = foodArr[getNum(size)];
+      food[i].img = "img/"+food[i].name+".jpg";
+      food[i].recipe = "recipes/"+food[i].name+".txt";
 
+      console.log(food[i].name);
+      console.log("\n");
+      
+      localFoodName[i] = food[i].name;
+      localFoodImg[i] = food[i].img;
+   }
+   setLocalHistory(foodHis);
+   setLocalCounter(counter);//setting the local counter at the end
+   setLocalFoodName(localFoodName);
+   setLocalFoodImg(localFoodImg);
 
+}
 function getNum(size){//keeps track of the the last 4 values of num (the last 4 meals). Updates the counter
-   if(counter == 4) // the history keeps only the last 4 values and resets when counter is 4
+   if(counter == max) // the history keeps only the last 4values and resets when counter is 4 (max should be 4 bc theres only 12 options)
       counter = 0;
    var num = Math.floor(Math.random()*size);//letting the value of numbe random ( the range is set by multiplying it by size)
    console.log("num: "+num);
    //System.out.println("possible value: "+arr[num]);
    
-   num = checkHis(history,num,size);  
-   history[counter] = num;
+   num = checkHis(foodHis,num,size);  
+   foodHis[counter] = num;
    
    console.log("counter: "+counter);
-   console.log(history);
+   console.log(foodHis);
 
-   counter++;   
+   counter++;  
    return num;
 }   
-
-function checkHis(history, num,size)//checks to see if num is already in history
+function checkHis(foodHis, num,size)//checks to see if num is already in history
 {
-   for(let i =0; i <= 4; i++)
+   for(let i =0; i < max; i++)
    {
-      if(num == history[i])
+      if(num == foodHis[i])
       {
         console.log("num : "+num+" getting a new num");
         num = Math.floor(Math.random()*size)
         console.log("num is now: "+num);
-        num = checkHis(history,num,size); 
+        num = checkHis(foodHis,num,size); 
 
       }  
    }
    
    return num;
+}
+//local functions
+function setLocalCounter(counter){
+   localStorage.setItem('localCounter',JSON.stringify(counter));
+}
+function setLocalHistory(foodHis){
+   localStorage.setItem('localHistory', JSON.stringify(Object.values(foodHis)));
+}
+function setLocalFoodName(localFoodName){
+   localStorage.setItem('localFoodName', JSON.stringify(localFoodName));
+}
+function setLocalFoodImg(localFoodImg){
+   localStorage.setItem('localFoodImg', JSON.stringify(localFoodImg));
 }

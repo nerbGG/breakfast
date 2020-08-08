@@ -4,11 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BFAST Program</title>
-        <link rel="stylesheet" href="header.css"type ="text/css" >
-        <link rel="stylesheet" href="body.css"type ="text/css" >
-        <link rel="stylesheet" href="main.css"type ="text/css" >
-        <link rel="stylesheet" href="arrow.css"type ="text/css" >
-        <link rel="stylesheet" href="output.css"type ="text/css" >
+        <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Amatic SC">
+        <link rel="stylesheet" href="css/body.css"type ="text/css" >
+        <link rel="stylesheet" href="css/output.css"type ="text/css" >
+        <link rel="stylesheet" href="css/header.css"type ="text/css" >
+        <link rel="stylesheet" href="css/main.css"type ="text/css" >
+        <link rel="stylesheet" href="css/arrow.css"type ="text/css" >
+        
     </head>
     <body>
         <div class="header"> 
@@ -28,26 +30,48 @@
                 <h1 id="bfast-text">Breakfast, </h1>
                 <h1 id="rest-text">with just one <strong>click!</strong></h1>    
             </div>
-            <a class="arrow down" href="#see-output" onclick="main()"></a> <!--calls main when clicked -->
-            <div id="output-div">
-                <div>
+            <!-- <a class="arrow down" href="#see-output" onclick="main()"></a> calls main when clicked -->
+            <a class="arrow down" href="#see-output" onclick="displayOutput()"></a>
+            <div id="output-div" class="output-hide">
+                <div class="output">
+                    <h4 id="name0"></h4>
+                    <img src="" id ="img0" alt="" width= "350px" height= "400px">
+                    <div id ="cover1" class="cover no-opacity" onclick="recipeCheckbox0()">
+                        <!-- <<button class="recipe-btn"></button> -->
+                        <!-- <input type="checkbox" name="checkbox" id ="checkbox1"class="recipe-checkbox" onclick="recipeCheckbox0()"> -->
+                        <span class="nosee-check">&#10004;</span>
+                    </div>
+                </div>
+                <div class="output">
                     <h4 id="name1"></h4>
                     <img src="" id ="img1" alt="" width= "350px" height= "400px">
+                    <div class="cover" onclick="recipeCheckbox1()">
+                        <!-- <button class="recipe-btn" ></button> -->
+                        <!-- <input type="checkbox" name="checkbox" class="recipe-checkbox" onclick="recipeCheckbox1()"> -->
+                        <span class="nosee-check">&#10004;</span>
+                    </div>
                 </div>
-                <div>
+                <div class="output">
                     <h4 id="name2"></h4>
                     <img src="" id ="img2" alt="" width= "350px" height= "400px">
+                    <div class="cover"onclick="recipeCheckbox2()">
+                        <!-- <button class="recipe-btn"></button> -->
+                        <!-- <input type="checkbox" name="checkbox" class="recipe-checkbox" onclick="recipeCheckbox2()"> -->
+                        <span class="nosee-check">&#10004;</span>
+                    </div>
                 </div>
-                <div>
+                <div class="output">
                     <h4 id="name3"></h4>
                     <img src="" id ="img3" alt="" width= "350px" height= "400px">
-                </div>
-                <div>
-                    <h4 id="name4"></h4>
-                    <img src="" id ="img4" alt="" width= "350px" height= "400px">
+                    <div class="cover"onclick="recipeCheckbox3()">
+                        <!-- <button class="recipe-btn"></button> -->
+                        <!-- <input type="checkbox" name="checkbox" class="recipe-checkbox" onclick="recipeCheckbox3()"> -->
+                        <span class="nosee-check">&#10004;</span>
+                    </div>
                 </div>
             </div>
         </div>
+        <button id="bfast-btn" onclick='main()'>Generate new B-fast</button>
         <p id="see-output"></p>
         <input type="file" id="file">
         <!-- <link rel="stylesheet" href="main.css" type="text/css"> -->
