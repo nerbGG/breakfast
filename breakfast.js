@@ -1,9 +1,35 @@
 //public vars
-// var foodArr = JSON.parse(localStorage.getItem('listoffood'));//if local storage isnt empty, then fod arr  = json.parsegetItem
-// console.log(foodArr.length)                                //else call getfileonew 
-// var foodArr=[];
-var foodArr = localStorage.getItem('listoffood')===null? getFile() : JSON.parse(localStorage.getItem('listoffood'));
-var foodHis = new Array(6);
+// var foodArr = localStorage.getItem('listOfFood')===null? getFile() : JSON.parse(localStorage.getItem('listOfFood'));
+var foodArr =[];
+// getFile();
+if(localStorage.getItem('listOfFood')=== null){
+   alert("select a file\n\n");
+   document.getElementById('file').addEventListener("change", function(){
+   var file = document.getElementById('file');
+   var reader =new FileReader(); 
+    reader.onload=function() { //must deal with onload before reading the file//cant accesss result outside of the onload function
+      // var storedFoodArr = [];
+      foodArr = reader.result.split("\n");
+      localStorage.setItem("listOfFood", JSON.stringify(foodArr));
+      // foodArr = JSON.parse(localStorage.getItem('listOfFood'));
+      console.log(foodArr);
+      // main();//should be called by a button -done
+      // return foodArr;
+   } 
+   //can read multiple files but only want the first one
+   //the there are no files alert, else read
+   if(!file.files[0])
+      alert("Must pick a file\n\n\n\n\n\n");
+   else
+      reader.readAsText(file.files[0]);
+   // reader.readAsText(file.files[0]);
+   })
+   }
+else{
+   foodArr = JSON.parse(localStorage.getItem('listOfFood'));
+}
+var max = 4;
+var foodHis = new Array(max);
 if(localStorage.getItem('localHistory') === null){
    // history = [];
    setLocalHistory(foodHis);
@@ -35,31 +61,32 @@ var localFoodImg = localStorage.getItem('localFoodImg')? JSON.parse(localStorage
 // localStorage.getItem('localCounter') === null? localStorage.setItem('localCounter',JSON.stringify(0)) : JSON.parse(localStorage.getItem("localCounter"));                              
 //console.log(foodArr);
 //script
-//getFile();
-function getFile(){
-   var file =document.getElementById('file');
+// //getFile();
+/*function getFile(){
+   // var file =document.getElementById('file');
    var reader =new FileReader(); 
    
    reader.onload=function() { //must deal with onload before reading the file//cant accesss result outside of the onload function
       // var storedFoodArr = [];
       foodArr = reader.result.split("\n");
-      localStorage.setItem("listoffood", JSON.stringify(foodArr));
-      foodArr = JSON.parse(localStorage.getItem('listoffood'));
+      // localStorage.setItem("listoffood", JSON.stringify(foodArr));
+      // foodArr = JSON.parse(localStorage.getItem('listoffood'));
       console.log(foodArr);
       // main();//should be called by a button -done
-      return foodArr;
+      // return foodArr;
    } 
    //can read multiple files but only want the first one
    //the there are no files alert, else read
    if(!file.files[0]){
       alert("Must pick a file\n\n\n\n\n\n");
+      
    }
    else{
       reader.readAsText(file.files[0]);
    }
    //removed the 'change' event listener so the user wont have to select the file to execute the program(user will have to refresh page if new file is selected)
   
-}
+}*/
 function recipeCheckbox0(){//when clicked, the div will become dark and the next div will brighten up
    // var checkBox = document.getElementsByClassName('recipe-checkbox');
    var cover= document.getElementsByClassName('cover');
@@ -187,7 +214,7 @@ function setFoodObjs(size){
 
 }
 function getNum(size){//keeps track of the the last 4 values of num (the last 4 meals). Updates the counter
-   if(counter == 6) // the history keeps only the last 6values and resets when counter is 4
+   if(counter == max) // the history keeps only the last 4values and resets when counter is 4 (max should be 4 bc theres only 12 options)
       counter = 0;
    var num = Math.floor(Math.random()*size);//letting the value of numbe random ( the range is set by multiplying it by size)
    console.log("num: "+num);
@@ -204,7 +231,7 @@ function getNum(size){//keeps track of the the last 4 values of num (the last 4 
 }   
 function checkHis(foodHis, num,size)//checks to see if num is already in history
 {
-   for(let i =0; i <= 6; i++)
+   for(let i =0; i < max; i++)
    {
       if(num == foodHis[i])
       {
