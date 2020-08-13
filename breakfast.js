@@ -3,7 +3,7 @@
 var foodArr =[];
 // getFile();
 if(localStorage.getItem('listOfFood')=== null){
-   alert("select a file\n\n");
+   alert("select a file if you do not want to\nuse the default meals\n\n");
    document.getElementById('file').addEventListener("change", function(){
    var file = document.getElementById('file');
    var reader =new FileReader(); 
@@ -19,7 +19,7 @@ if(localStorage.getItem('listOfFood')=== null){
    //can read multiple files but only want the first one
    //the there are no files alert, else read
    if(!file.files[0])
-      alert("Must pick a file\n\n\n\n\n\n");
+   alert("Default meals will be used,\nPick a file to add or change meal list\n\n\n\n");
    else
       reader.readAsText(file.files[0]);
    // reader.readAsText(file.files[0]);
@@ -69,8 +69,8 @@ var localFoodImg = localStorage.getItem('localFoodImg')? JSON.parse(localStorage
    reader.onload=function() { //must deal with onload before reading the file//cant accesss result outside of the onload function
       // var storedFoodArr = [];
       foodArr = reader.result.split("\n");
-      // localStorage.setItem("listoffood", JSON.stringify(foodArr));
-      // foodArr = JSON.parse(localStorage.getItem('listoffood'));
+      // localStorage.setItem("listOfFood", JSON.stringify(foodArr));
+      // foodArr = JSON.parse(localStorage.getItem('listOfFood'));
       console.log(foodArr);
       // main();//should be called by a button -done
       // return foodArr;
@@ -152,24 +152,21 @@ function changeArrow(){
 }
 function displayOutput(){//will display the old 4 sets of food
    // document.getElementById("output-div").style.display = "inline-flex";
-   var file = document.getElementById('file');
-   
-   if(!file.files[0]){
-      alert("Must pick a file\n\n\n\n\n\n");
-      return 0;
-   }
-   else if(localFoodName.length <= 0){
+   // var file = document.getElementById('file');
+   // if(foodArr.length <= 0){
+   //    alert("using default meals,\nChoose a file for different meals");
+   // }
+   if(localFoodName.length <= 0){
       alert("generate B-fast first");
       return 0;
    }
-   // if(text_output[0].innerHTML) add a rul ehere bc its inefficient to call setoutput when main already calls it
-      setOutput();
+      // if(text_output[0].innerHTML) add a rule here bc its inefficient to call setoutput when main already calls it
+   setOutput();
       // main();
       // setOutput();
       // displayOutput();
    document.getElementById("output-div").classList.toggle("output-display");
    changeArrow();
-   
 }
 
 function toggleDisplayLinks(){//for mobile view, instead of being hidden, they become visible 
@@ -186,6 +183,12 @@ function toggleDisplayLinks(){//for mobile view, instead of being hidden, they b
 //backend-functions
 function main(){
    // console.log(foodArr);
+   if(foodArr.length <= 0){
+      alert('using default meals');
+      foodArr = ['waffles', 'pancakes', 'soup', 'noodle-soup', 'spaghetti', 'bagels', 'oatmeal', 'muffins', 
+      'apple-turnovers', 'chocolate-bread', 'eggs', 'cornbread'];
+      //  localStorage.setItem("listOfFood", JSON.stringify(foodArr));
+   }
    let size = foodArr.length;
    //storing the html input file
     setFoodObjs(size);
